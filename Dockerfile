@@ -1,13 +1,13 @@
-FROM livingstoneonline/base:xenial
+FROM livingstoneonline/base:ubuntu
 MAINTAINER Nigel Banks <nigel.g.banks@gmail.com>
 
 LABEL "License"="GPLv3" \
       "Version"="0.0.1"
 
 ARG JAVA_VERSION_MAJOR=8
-ARG JAVA_VERSION_UPDATE=121
-ARG JAVA_VERSION_BUILD=13
-ARG JAVA_SIGNATURE=e9e7ea248e2c4826b92b3f075a80e441
+ARG JAVA_VERSION_UPDATE=131
+ARG JAVA_VERSION_BUILD=11
+ARG JAVA_SIGNATURE=d54c1d3a095b4ff2b6607d096fa80163
 ARG OPENSSL_VERSION=1.0.2j
 
 ENV JAVA_HOME=/usr/lib/jvm/java-${JAVA_VERSION_MAJOR}-oracle
@@ -40,7 +40,6 @@ RUN apt-install \
     cleanup
 
 RUN update-alternatives --install "/usr/bin/java" "java" "${JAVA_HOME}/bin/java" 1 && \
-	  update-alternatives --install "/usr/bin/javaws" "javaws" "${JAVA_HOME}/bin/javaws" 1 && \
-	  update-alternatives --set java "${JAVA_HOME}/bin/java" && \
-	  update-alternatives --set javaws "${JAVA_HOME}/bin/javaws"
-
+	update-alternatives --install "/usr/bin/javaws" "javaws" "${JAVA_HOME}/bin/javaws" 1 && \
+	update-alternatives --set java "${JAVA_HOME}/bin/java" && \
+	update-alternatives --set javaws "${JAVA_HOME}/bin/javaws"
