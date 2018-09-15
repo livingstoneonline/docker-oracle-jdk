@@ -1,4 +1,4 @@
-FROM livingstoneonline/base:ubuntu
+FROM livingstoneonline/base-ubuntu
 MAINTAINER Nigel Banks <nigel.g.banks@gmail.com>
 
 LABEL "License"="GPLv3" \
